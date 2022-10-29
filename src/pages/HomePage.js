@@ -1,7 +1,11 @@
 import React from "react";
-
+import "./HomePage.css";
 const HomePage = () => {
-  return <div>You are logged in to the home page</div>;
+  return (
+    <div className="home">
+      <p>You are logged into the homepage</p>
+    </div>
+  );
 };
 
 export default HomePage;
