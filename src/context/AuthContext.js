@@ -10,10 +10,12 @@ export const AuthProvider = ({ children }) => {
 
   //   function to login user
   let loginUser = async (e) => {
-    let response = fetch("http://127.0.0.1:8000/api/token/", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ username: null, password: null }),
+    e.preventDefault();
+    console.log('form was submitted')
+    // let response = fetch("http://127.0.0.1:8000/api/token/", {
+    //   method: "POST",
+    //   headers: { "content-type": "application/json" },
+    //   body: JSON.stringify({ username: null, password: null }),
     });
   };
   let contextData = {
