@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
-import {} from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"; // As at March 3, 2022
 // to decode acces token
 const AuthContext = createContext();
 
@@ -10,7 +9,7 @@ export default AuthContext;
 export const AuthProvider = ({ children }) => {
   let [user, setUser] = useState(null);
   let [authTokens, setAuthTokens] = useState(null);
-
+  const history = useNavigate();
   //   function to login user
   let loginUser = async (e) => {
     e.preventDefault();
@@ -30,6 +29,7 @@ export const AuthProvider = ({ children }) => {
       setAuthTokens(data);
       setUser(jwt_decode(data.access));
       localStorage.setItem("authTokens", JSON.stringify(data));
+      history("/");
     } else {
       alert("Error: ");
     }
